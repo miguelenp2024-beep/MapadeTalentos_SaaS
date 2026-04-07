@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  :root {
+    /* Tema Claro Padrão - Whitelabel Base */
+    --background: #f8fafc; /* Slate 50 */
+    --foreground: #0f172a; /* Slate 900 */
+    
+    --primary: #3b82f6; /* Blue 500 - Cor base que será facilmente sobrescrita por cliente */
+    --primary-foreground: #ffffff;
+    
+    --surface: #ffffff; 
+    --border: #e2e8f0; /* Slate 200 */
+    
+    --radius: 0.75rem;
+
+    --font-sans: 'Inter', system-ui, sans-serif;
+  }
+
+  .dark {
+    --background: #020817; /* Very Dark Blue */
+    --foreground: #f8fafc;
+    
+    --primary: #3b82f6; 
+    --primary-foreground: #ffffff;
+    
+    --surface: #0f172a; /* Slate 900 */
+    --border: #1e293b; /* Slate 800 */
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Glassmorphism Classes Mágicas */
+@layer utilities {
+  .glass {
+    @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 dark:border-slate-800/50 shadow-xl;
+  }
+  .glass-card {
+    @apply bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-slate-200/50 dark:border-slate-800/80 shadow-lg rounded-2xl;
+  }
+}

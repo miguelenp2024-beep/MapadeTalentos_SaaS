@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Target, Users, LogOut, Settings } from "lucide-react";
+import { LayoutDashboard, Target, Users, LogOut, Settings, Shield } from "lucide-react";
 import { supabase } from "@/lib/supabase/client";
 
 export function Sidebar() {
@@ -13,6 +13,7 @@ export function Sidebar() {
     { name: "Painel Geral", path: "/rh/dashboard", icon: LayoutDashboard },
     { name: "Guias de Cargo", path: "/rh/guias", icon: Target },
     { name: "Participantes", path: "/rh/talentos", icon: Users },
+    { name: "Admin (Master)", path: "/admin/clients/new", icon: Shield },
   ];
 
   const handleLogout = async () => {
